@@ -3,24 +3,181 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inioluwa Coding School</title>
+  <title>Inioluwa Coding School - Full Guide</title>
   <style>
-    body { font-family: Arial; margin:0; padding:0; background:#f0f4f8; color:#333; }
-    header { background:#6a0dad; color:white; text-align:center; padding:30px 10px; }
-    main { text-align:center; padding:50px 20px; }
-    a.button { display:inline-block; padding:15px 25px; background:#6a0dad; color:white; text-decoration:none; margin:10px; border-radius:8px; }
-    a.button:hover { background:#4b0082; }
+    body { font-family: Arial, sans-serif; background: #f0f4f8; color: #333; margin: 0; padding: 0; }
+    header { background: #6a0dad; color: white; text-align: center; padding: 40px 10px; }
+    main { max-width: 1000px; margin: auto; padding: 20px; }
+    h2 { color: #6a0dad; margin-top: 30px; }
+    section { background: #fff; padding: 25px; border-radius: 10px; margin-bottom: 25px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+    code, pre { background: #e0e0e0; padding: 2px 5px; border-radius: 3px; display: block; margin: 10px 0; white-space: pre-wrap; }
+    a.button { display: inline-block; padding: 15px 25px; background: #6a0dad; color: white; text-decoration: none; margin: 10px; border-radius: 8px; }
+    a.button:hover { background: #4b0082; }
+    .interactive { margin-top: 15px; }
+    button.action { padding: 10px 15px; margin-top: 10px; background: #6a0dad; color: white; border: none; cursor: pointer; border-radius: 5px; }
+    button.action:hover { background: #4b0082; }
+    .output { background: #e0e0e0; padding: 10px; min-height: 30px; margin-top: 10px; border-radius: 5px; }
+    ul { margin-left: 20px; }
+    li { margin-bottom: 5px; }
   </style>
 </head>
 <body>
   <header>
-    <h1>Welcome, Inioluwa!</h1>
-    <p>Your coding adventure starts here 🚀</p>
+    <h1>Welcome to Inioluwa Coding School! 🚀</h1>
+    <p>This is your ultimate beginner guide to HTML, CSS, and JavaScript.</p>
   </header>
+
   <main>
-    <h2>Pick your path:</h2>
-    <a class="button" href="lesson.html">Start Lessons</a>
-    <a class="button" href="projects.html">Try Projects</a>
+    <!-- HTML Section -->
+    <section>
+      <h2>1. HTML – The Structure</h2>
+      <p>HTML (HyperText Markup Language) is the backbone of a webpage. It tells the browser <strong>what content is on the page</strong>. It is NOT a programming language, just a markup language.</p>
+      <p>Think of HTML as the skeleton of a house: it defines walls, doors, and windows, but doesn’t paint or decorate them.</p>
+      <h3>Common HTML elements:</h3>
+      <ul>
+        <li><code>&lt;h1&gt;...&lt;/h1&gt;</code> – Headings</li>
+        <li><code>&lt;p&gt;...&lt;/p&gt;</code> – Paragraphs</li>
+        <li><code>&lt;a href="..."&gt;...&lt;/a&gt;</code> – Links</li>
+        <li><code>&lt;img src="..." alt="..." /&gt;</code> – Images</li>
+        <li><code>&lt;ul&gt;&lt;li&gt;...&lt;/li&gt;&lt;/ul&gt;</code> – Lists</li>
+        <li><code>&lt;button&gt;...&lt;/button&gt;</code> – Buttons</li>
+        <li><code>&lt;div&gt;...&lt;/div&gt;</code> – Containers for grouping elements</li>
+      </ul>
+      <h3>Example HTML code:</h3>
+      <pre><code>&lt;h1&gt;Hello World!&lt;/h1&gt;
+&lt;p&gt;This is my first webpage.&lt;/p&gt;
+&lt;a href="https://flexi-spec.github.io/Coding-basis-for-Inioluwa-/"&gt;Check my lessons&lt;/a&gt;</code></pre>
+      <p>💡 Tip: Use <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> to group elements and organize your page better.</p>
+    </section>
+
+    <!-- CSS Section -->
+    <section>
+      <h2>2. CSS – The Style</h2>
+      <p>CSS (Cascading Style Sheets) controls how HTML elements look. It’s like painting the walls, choosing furniture, and decorating the house. CSS makes your webpage visually appealing.</p>
+      <h3>What CSS can do:</h3>
+      <ul>
+        <li>Change colors, fonts, and sizes</li>
+        <li>Adjust spacing, margins, and padding</li>
+        <li>Arrange layouts using Flexbox or Grid</li>
+        <li>Add animations and hover effects</li>
+        <li>Make pages responsive for mobile and desktop</li>
+      </ul>
+      <h3>Example CSS code:</h3>
+      <pre><code>h1 {
+  color: purple;
+  text-align: center;
+  font-size: 36px;
+}
+p {
+  color: #555;
+  line-height: 1.5;
+}</code></pre>
+      <p>💡 Tip: You can write CSS inline, in a &lt;style&gt; tag, or in a separate .css file. The separation of style from structure keeps your code clean.</p>
+    </section>
+
+    <!-- JS Section -->
+    <section>
+      <h2>3. JavaScript – The Interactivity</h2>
+      <p>JavaScript (JS) makes webpages interactive. It responds to clicks, typing, moving the mouse, or other user actions.</p>
+      <p>Think of JS as electricity and smart systems in a house: it turns lights on, opens doors, and makes the environment react.</p>
+      <h3>What JavaScript can do:</h3>
+      <ul>
+        <li>Show alerts and messages</li>
+        <li>Update content without refreshing the page</li>
+        <li>Validate forms and user input</li>
+        <li>Animate elements</li>
+        <li>Fetch data from servers (APIs)</li>
+      </ul>
+      <h3>Example JavaScript code:</h3>
+      <pre><code>function greet() {
+  alert("Hello Inioluwa! Welcome to coding!");
+}
+greet();</code></pre>
+      <p>💡 Tip: JS works with the DOM (Document Object Model), which represents your HTML elements as objects you can manipulate.</p>
+    </section>
+
+    <!-- Interactive Playground -->
+    <section>
+      <h2>Try It Yourself! 🖥️</h2>
+      <p>Play around with HTML, CSS, and JS directly in this page:</p>
+
+      <div class="interactive">
+        <h3>HTML Example</h3>
+        <textarea id="html-input" rows="3">&lt;h2&gt;Hi Jim!&lt;/h2&gt;&lt;p&gt;I am learning HTML.&lt;/p&gt;</textarea><br>
+        <button class="action" onclick="runHTML()">Run HTML</button>
+        <div class="output" id="html-output"></div>
+      </div>
+
+      <div class="interactive">
+        <h3>CSS Example</h3>
+        <textarea id="css-input" rows="3">h2 { color: green; } p { font-size: 18px; }</textarea><br>
+        <button class="action" onclick="runCSS()">Apply CSS</button>
+      </div>
+
+      <div class="interactive">
+        <h3>JS Example</h3>
+        <textarea id="js-input" rows="3">alert("Hello little bro!");</textarea><br>
+        <button class="action" onclick="runJS()">Run JS</button>
+      </div>
+    </section>
+
+    <!-- Mini Game -->
+    <section>
+      <h2>Mini Project – Click Counter</h2>
+      <p>Let’s make a simple game! Click the button and see the counter go up:</p>
+      <button class="action" onclick="increment()">Click Me!</button>
+      <div class="output" id="counter">0</div>
+
+      <p>Challenge: What is 5 + 7?</p>
+      <button class="action" onclick="tryChallenge()">Answer</button>
+      <div class="output" id="challenge-output"></div>
+    </section>
+
+    <!-- Navigation -->
+    <section>
+      <h2>Next Steps</h2>
+      <p>Ready to dive deeper? Click below to start your lessons or try mini projects:</p>
+      <a class="button" href="lesson.html">Start Lessons</a>
+      <a class="button" href="projects.html">Try Projects</a>
+      <p>💡 Tip: The best way to learn coding is to experiment — break things, fix them, and explore new ideas!</p>
+    </section>
   </main>
+
+  <script>
+    // Playground functions
+    let styleTag;
+    function runHTML() {
+      const html = document.getElementById('html-input').value;
+      document.getElementById('html-output').innerHTML = html;
+    }
+    function runCSS() {
+      const css = document.getElementById('css-input').value;
+      if(!styleTag) {
+        styleTag = document.createElement('style');
+        document.head.appendChild(styleTag);
+      }
+      styleTag.innerHTML = css;
+    }
+    function runJS() {
+      const js = document.getElementById('js-input').value;
+      try {
+        eval(js);
+      } catch(e) {
+        alert('Error: ' + e.message);
+      }
+    }
+
+    // Mini game functions
+    let count = 0;
+    function increment() {
+      count++;
+      document.getElementById('counter').innerText = count;
+    }
+    function tryChallenge() {
+      const answer = prompt("Type your answer:");
+      if(answer==='12'){ document.getElementById('challenge-output').innerText = "Correct! 🎉"; }
+      else{ document.getElementById('challenge-output').innerText = "Try again 😅"; }
+    }
+  </script>
 </body>
-</html>
+  </html>
