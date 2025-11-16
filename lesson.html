@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lessons - Inioluwa Coding School</title>
+  <style>
+    body { font-family: Arial; background:#f0f4f8; margin:0; padding:0; color:#333; }
+    header { background:#6a0dad; color:white; text-align:center; padding:20px 10px; }
+    nav { display:flex; justify-content:center; background:#4b0082; }
+    nav button { background:transparent; border:none; color:white; padding:15px 20px; cursor:pointer; }
+    nav button:hover { background: rgba(255,255,255,0.2); }
+    section { display:none; padding:20px; max-width:800px; margin:auto; }
+    section.active { display:block; }
+    textarea { width:100%; padding:8px; margin-top:5px; margin-bottom:10px; }
+    button.action { padding:10px 15px; background:#6a0dad; color:white; border:none; cursor:pointer; }
+    button.action:hover { background:#4b0082; }
+    .output { background:#e0e0e0; padding:10px; min-height:30px; margin-top:10px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Interactive Coding Lessons</h1>
+    <p>Learn HTML, CSS, and JS step by step 🚀</p>
+  </header>
+
+  <nav>
+    <button onclick="showSection('html')">HTML</button>
+    <button onclick="showSection('css')">CSS</button>
+    <button onclick="showSection('js')">JS</button>
+  </nav>
+
+  <section id="html" class="active">
+    <h2>HTML Basics</h2>
+    <pre>&lt;h1&gt;Hello&lt;/h1&gt;&lt;p&gt;This is a paragraph.&lt;/p&gt;</pre>
+    <textarea id="html-input" rows="4">&lt;h2&gt;Hi!&lt;/h2&gt;</textarea>
+    <button class="action" onclick="runHTML()">Run HTML</button>
+    <div class="output" id="html-output"></div>
+  </section>
+
+  <section id="css">
+    <h2>CSS Basics</h2>
+    <pre>h2 { color: blue; }</pre>
+    <textarea id="css-input" rows="4">h2 { color: green; }</textarea>
+    <button class="action" onclick="runCSS()">Apply CSS</button>
+  </section>
+
+  <section id="js">
+    <h2>JavaScript Basics</h2>
+    <pre>function greet() { alert("Hi Inioluwa!"); }</pre>
+    <textarea id="js-input" rows="4">alert("Hello little bro!");</textarea>
+    <button class="action" onclick="runJS()">Run JS</button>
+  </section>
+
+  <script>
+    function showSection(id){
+      document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    function runHTML(){
+      const html = document.getElementById('html-input').value;
+      document.getElementById('html-output').innerHTML = html;
+    }
+
+    let styleTag;
+    function runCSS(){
+      const css = document.getElementById('css-input').value;
+      if(!styleTag){ styleTag = document.createElement('style'); document.head.appendChild(styleTag); }
+      styleTag.innerHTML = css;
+    }
+
+    function runJS(){
+      const js = document.getElementById('js-input').value;
+      try{ eval(js); } catch(e){ alert('Error: '+e.message); }
+    }
+  </script>
+</body>
+</html>
