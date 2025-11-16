@@ -6,73 +6,129 @@
   <title>Lessons - Inioluwa Coding School</title>
   <style>
     body { font-family: Arial; background:#f0f4f8; margin:0; padding:0; color:#333; }
-    header { background:#6a0dad; color:white; text-align:center; padding:20px 10px; }
+    header { background:#6a0dad; color:white; text-align:center; padding:30px 10px; }
+    header h1 { margin-bottom:5px; }
+    header p { margin-top:0; font-style:italic; }
     nav { display:flex; justify-content:center; background:#4b0082; }
-    nav button { background:transparent; border:none; color:white; padding:15px 20px; cursor:pointer; }
+    nav button { background:transparent; border:none; color:white; padding:15px 20px; cursor:pointer; font-weight:bold; }
     nav button:hover { background: rgba(255,255,255,0.2); }
-    section { display:none; padding:20px; max-width:800px; margin:auto; }
+    section { display:none; padding:20px; max-width:900px; margin:auto; background:#fff; margin-top:20px; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
     section.active { display:block; }
-    textarea { width:100%; padding:8px; margin-top:5px; margin-bottom:10px; }
-    button.action { padding:10px 15px; background:#6a0dad; color:white; border:none; cursor:pointer; }
+    textarea { width:100%; padding:10px; margin-top:10px; margin-bottom:10px; font-family:monospace; font-size:16px; border-radius:5px; border:1px solid #ccc; }
+    button.action { padding:10px 20px; background:#6a0dad; color:white; border:none; cursor:pointer; border-radius:5px; font-weight:bold; }
     button.action:hover { background:#4b0082; }
-    .output { background:#e0e0e0; padding:10px; min-height:30px; margin-top:10px; }
+    .output { background:#e0e0e0; padding:15px; min-height:40px; margin-top:10px; border-radius:5px; font-family:monospace; }
+    .hint { margin-top:10px; font-style:italic; color:#555; }
+    .challenge { margin-top:15px; background:#f7f7f7; padding:10px; border-radius:5px; }
   </style>
 </head>
 <body>
   <header>
-    <h1>Interactive Coding Lessons</h1>
-    <p>Learn HTML, CSS, and JS step by step 🚀</p>
+    <h1>Welcome, Inioluwa! 🚀</h1>
+    <p>Learn HTML, CSS, and JS step by step — let's code together! 😎</p>
   </header>
 
   <nav>
     <button onclick="showSection('html')">HTML</button>
     <button onclick="showSection('css')">CSS</button>
-    <button onclick="showSection('js')">JS</button>
+    <button onclick="showSection('js')">JavaScript</button>
+    <button onclick="showSection('mini')">Mini Challenges</button>
   </nav>
 
+  <!-- HTML Section -->
   <section id="html" class="active">
     <h2>HTML Basics</h2>
+    <p>HTML builds the structure of a webpage. It's like the skeleton of a house. Without it, nothing exists!</p>
     <pre>&lt;h1&gt;Hello&lt;/h1&gt;&lt;p&gt;This is a paragraph.&lt;/p&gt;</pre>
-    <textarea id="html-input" rows="4">&lt;h2&gt;Hi!&lt;/h2&gt;</textarea>
+    <textarea id="html-input" rows="4">&lt;h2&gt;Hi little bro!&lt;/h2&gt;&lt;p&gt;I am learning HTML!&lt;/p&gt;</textarea>
     <button class="action" onclick="runHTML()">Run HTML</button>
     <div class="output" id="html-output"></div>
+    <div class="hint">💡 Tip: Use &lt;div&gt; to group elements and &lt;span&gt; to style text inside a paragraph.</div>
   </section>
 
+  <!-- CSS Section -->
   <section id="css">
     <h2>CSS Basics</h2>
+    <p>CSS styles your webpage. Colors, fonts, layout — all that jazz!</p>
     <pre>h2 { color: blue; }</pre>
-    <textarea id="css-input" rows="4">h2 { color: green; }</textarea>
+    <textarea id="css-input" rows="4">h2 { color: green; font-size: 28px; }</textarea>
     <button class="action" onclick="runCSS()">Apply CSS</button>
+    <div class="hint">💡 Tip: Try changing the color or font size to see live results!</div>
   </section>
 
+  <!-- JS Section -->
   <section id="js">
     <h2>JavaScript Basics</h2>
+    <p>JS adds interactivity. Alerts, animations, dynamic content — it makes your page alive.</p>
     <pre>function greet() { alert("Hi Inioluwa!"); }</pre>
-    <textarea id="js-input" rows="4">alert("Hello little bro!");</textarea>
+    <textarea id="js-input" rows="4">alert("Hello little bro! Ready to learn JS?");</textarea>
     <button class="action" onclick="runJS()">Run JS</button>
+    <div class="hint">💡 Tip: JS can change HTML or CSS dynamically — try selecting elements and modifying them!</div>
+  </section>
+
+  <!-- Mini Challenges -->
+  <section id="mini">
+    <h2>Mini Challenges 🏆</h2>
+
+    <div class="challenge">
+      <h3>1️⃣ Click Counter</h3>
+      <p>Click the button and see the number go up:</p>
+      <button class="action" onclick="increment()">Click Me!</button>
+      <div class="output" id="counter">0</div>
+    </div>
+
+    <div class="challenge">
+      <h3>2️⃣ Math Challenge</h3>
+      <p>What is 5 + 7?</p>
+      <button class="action" onclick="tryChallenge()">Answer</button>
+      <div class="output" id="challenge-output"></div>
+    </div>
+
+    <div class="challenge">
+      <h3>3️⃣ Personalized JS Fun</h3>
+      <p>Type your name and see a greeting:</p>
+      <input type="text" id="name-input" placeholder="Type your name">
+      <button class="action" onclick="greetName()">Greet Me!</button>
+      <div class="output" id="greet-output"></div>
+    </div>
   </section>
 
   <script>
     function showSection(id){
-      document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+      document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
       document.getElementById(id).classList.add('active');
     }
 
+    // HTML/CSS/JS playground
+    let styleTag;
     function runHTML(){
       const html = document.getElementById('html-input').value;
       document.getElementById('html-output').innerHTML = html;
     }
-
-    let styleTag;
     function runCSS(){
       const css = document.getElementById('css-input').value;
       if(!styleTag){ styleTag = document.createElement('style'); document.head.appendChild(styleTag); }
       styleTag.innerHTML = css;
     }
-
     function runJS(){
       const js = document.getElementById('js-input').value;
       try{ eval(js); } catch(e){ alert('Error: '+e.message); }
+    }
+
+    // Mini challenges
+    let count = 0;
+    function increment(){ count++; document.getElementById('counter').innerText = count; }
+
+    function tryChallenge(){
+      const answer = prompt("Type your answer:");
+      if(answer==='12'){ document.getElementById('challenge-output').innerText = "Correct! 🎉"; }
+      else{ document.getElementById('challenge-output').innerText = "Try again 😅"; }
+    }
+
+    function greetName(){
+      const name = document.getElementById('name-input').value;
+      if(name) document.getElementById('greet-output').innerText = `Hello, ${name}! Keep rocking JS 💻`;
+      else document.getElementById('greet-output').innerText = "Type your name first!";
     }
   </script>
 </body>
