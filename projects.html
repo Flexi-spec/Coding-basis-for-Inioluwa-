@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects - Inioluwa Coding School</title>
+  <style>
+    body { font-family: Arial; background:#f0f4f8; margin:0; padding:0; color:#333; }
+    header { background:#6a0dad; color:white; text-align:center; padding:20px 10px; }
+    main { max-width:800px; margin:auto; padding:20px; }
+    button.action { padding:10px 15px; background:#6a0dad; color:white; border:none; cursor:pointer; margin-top:10px; }
+    button.action:hover { background:#4b0082; }
+    .output { background:#e0e0e0; padding:10px; min-height:30px; margin-top:10px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mini Projects</h1>
+    <p>Practice what you've learned! 🎮</p>
+  </header>
+  <main>
+    <h2>Click Counter</h2>
+    <button class="action" onclick="increment()">Click Me!</button>
+    <div class="output" id="counter">0</div>
+
+    <h2>Simple Challenge</h2>
+    <p>What's 5 + 7?</p>
+    <button class="action" onclick="tryChallenge()">Answer</button>
+    <div class="output" id="challenge-output"></div>
+  </main>
+
+  <script>
+    let count = 0;
+    function increment(){
+      count++;
+      document.getElementById('counter').innerText = count;
+    }
+
+    function tryChallenge(){
+      const answer = prompt("Type your answer:");
+      if(answer==='12'){ document.getElementById('challenge-output').innerText = "Correct! 🎉"; }
+      else{ document.getElementById('challenge-output').innerText = "Try again 😅"; }
+    }
+  </script>
+</body>
+</html>
