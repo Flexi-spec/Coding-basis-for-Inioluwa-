@@ -6,40 +6,112 @@
   <title>Projects - Inioluwa Coding School</title>
   <style>
     body { font-family: Arial; background:#f0f4f8; margin:0; padding:0; color:#333; }
-    header { background:#6a0dad; color:white; text-align:center; padding:20px 10px; }
-    main { max-width:800px; margin:auto; padding:20px; }
-    button.action { padding:10px 15px; background:#6a0dad; color:white; border:none; cursor:pointer; margin-top:10px; }
+    header { background:#6a0dad; color:white; text-align:center; padding:30px 10px; }
+    header h1 { margin-bottom:5px; }
+    header p { margin-top:0; font-style:italic; }
+    main { max-width:900px; margin:auto; padding:20px; }
+    .project { background:#fff; padding:20px; margin-top:20px; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+    button.action { padding:10px 20px; background:#6a0dad; color:white; border:none; cursor:pointer; border-radius:5px; font-weight:bold; }
     button.action:hover { background:#4b0082; }
-    .output { background:#e0e0e0; padding:10px; min-height:30px; margin-top:10px; }
+    .output { background:#e0e0e0; padding:15px; min-height:40px; margin-top:10px; border-radius:5px; font-family:monospace; }
+    input { padding:8px; margin-top:5px; margin-bottom:10px; border-radius:5px; border:1px solid #ccc; width:100%; }
   </style>
 </head>
 <body>
   <header>
-    <h1>Mini Projects</h1>
-    <p>Practice what you've learned! 🎮</p>
+    <h1>Mini Projects 🚀</h1>
+    <p>Practice what you've learned 😎</p>
   </header>
-  <main>
-    <h2>Click Counter</h2>
-    <button class="action" onclick="increment()">Click Me!</button>
-    <div class="output" id="counter">0</div>
 
-    <h2>Simple Challenge</h2>
-    <p>What's 5 + 7?</p>
-    <button class="action" onclick="tryChallenge()">Answer</button>
-    <div class="output" id="challenge-output"></div>
+  <main>
+    <!-- Project 1: Click Counter -->
+    <div class="project">
+      <h2>1️⃣ Click Counter</h2>
+      <p>Click the button and watch the number go up:</p>
+      <button class="action" onclick="increment()">Click Me!</button>
+      <div class="output" id="counter">0</div>
+    </div>
+
+    <!-- Project 2: Simple Math Challenge -->
+    <div class="project">
+      <h2>2️⃣ Math Challenge</h2>
+      <p>What's 5 + 7?</p>
+      <button class="action" onclick="tryChallenge()">Answer</button>
+      <div class="output" id="challenge-output"></div>
+    </div>
+
+    <!-- Project 3: Personalized Greeting -->
+    <div class="project">
+      <h2>3️⃣ Personalized JS Fun</h2>
+      <p>Type your name and see a greeting:</p>
+      <input type="text" id="name-input" placeholder="Type your name">
+      <button class="action" onclick="greetName()">Greet Me!</button>
+      <div class="output" id="greet-output"></div>
+    </div>
+
+    <!-- Project 4: Dynamic HTML -->
+    <div class="project">
+      <h2>4️⃣ Dynamic HTML</h2>
+      <p>Type some HTML below and see it appear live:</p>
+      <textarea id="html-project" rows="4">&lt;h3&gt;Hello World!&lt;/h3&gt;</textarea>
+      <button class="action" onclick="runProjectHTML()">Run HTML</button>
+      <div class="output" id="html-project-output"></div>
+    </div>
+
+    <!-- Project 5: Dynamic CSS -->
+    <div class="project">
+      <h2>5️⃣ Dynamic CSS</h2>
+      <p>Type some CSS to style the page:</p>
+      <textarea id="css-project" rows="4">h3 { color: purple; }</textarea>
+      <button class="action" onclick="runProjectCSS()">Apply CSS</button>
+    </div>
+
+    <!-- Project 6: Dynamic JS -->
+    <div class="project">
+      <h2>6️⃣ Dynamic JS</h2>
+      <p>Type some JS to make things happen:</p>
+      <textarea id="js-project" rows="4">alert("Hello little bro!");</textarea>
+      <button class="action" onclick="runProjectJS()">Run JS</button>
+    </div>
   </main>
 
   <script>
+    // Project 1: Click Counter
     let count = 0;
-    function increment(){
-      count++;
-      document.getElementById('counter').innerText = count;
-    }
+    function increment(){ count++; document.getElementById('counter').innerText = count; }
 
+    // Project 2: Math Challenge
     function tryChallenge(){
       const answer = prompt("Type your answer:");
       if(answer==='12'){ document.getElementById('challenge-output').innerText = "Correct! 🎉"; }
       else{ document.getElementById('challenge-output').innerText = "Try again 😅"; }
+    }
+
+    // Project 3: Personalized Greeting
+    function greetName(){
+      const name = document.getElementById('name-input').value;
+      if(name) document.getElementById('greet-output').innerText = `Hello, ${name}! Keep rocking JS 💻`;
+      else document.getElementById('greet-output').innerText = "Type your name first!";
+    }
+
+    // Project 4: Dynamic HTML
+    function runProjectHTML(){
+      const html = document.getElementById('html-project').value;
+      document.getElementById('html-project-output').innerHTML = html;
+    }
+
+    // Project 5: Dynamic CSS
+    let styleTag;
+    function runProjectCSS(){
+      const css = document.getElementById('css-project').value;
+      if(!styleTag){ styleTag = document.createElement('style'); document.head.appendChild(styleTag); }
+      styleTag.innerHTML = css;
+    }
+
+    // Project 6: Dynamic JS
+    function runProjectJS(){
+      const js = document.getElementById('js-project').value;
+      try{ eval(js); } catch(e){ alert('Error: '+e.message); }
     }
   </script>
 </body>
